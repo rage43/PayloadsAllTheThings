@@ -1,0 +1,9 @@
+#Grep wordlist
+One liner : 
+grep -x '.\{3,18\}' wordlist.txt | grep -Pv '^[^\w]+$' | grep -Pv '^([a-zA-Z0-9])\1+$' | grep -P '^[\x00-\x7F\xA0-\xFF]+$' | grep -Pv '^\d+$' | sort -u > filtered_wordlist.txt
+
+La moitié de la wordlist xato-net accessible publiquement :
+https://github.com/danielmiessler/SecLists/blob/master/Passwords/xato-net-10-million-passwords.txt
+
+Top 20000 des mots de passe français :
+https://github.com/danielmiessler/SecLists/blob/master/Passwords/richelieu-french-top20000.txt
